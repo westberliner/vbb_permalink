@@ -4,6 +4,8 @@
  *			share dom with url of current row
  *			safari plugin
  */
+(function(){
+
 vbb_permalink_init();
 
 function vbb_permalink_init() {
@@ -16,9 +18,9 @@ function vbb_permalink_init() {
 	tbody[0].className += " vbb-permalink";
 
 	var rows = tbody[0].getElementsByTagName("tr");
-	var cell = document.createElement("td");       
-		cell.innerHTML = "Permalink"; 
-		cell.style.padding = "2px 10px";      
+	var cell = document.createElement("td");
+		cell.innerHTML = "Permalink";
+		cell.style.padding = "2px 10px";
 		rows[0].appendChild(cell);
 
 
@@ -33,14 +35,14 @@ function vbb_permalink_init() {
 	for(i = 0; i < rows.length; i++) {
 		if(!vbb_permalink_has_class(rows[i],'navi')) {
 
-			var cell = document.createElement("td");        
-			cell.innerHTML = "<a href=\""+vbb_permalink_get_url(rows[i])+"\">share this</a>"; 
-			cell.style.padding = "2px 10px";        
-			rows[i].appendChild(cell);   
+			cell = document.createElement("td");
+			cell.innerHTML = "<a href=\""+vbb_permalink_get_url(rows[i])+"\">share this</a>";
+			cell.style.padding = "2px 10px";
+			rows[i].appendChild(cell);
 		} else {
 			var navi = rows[i].getElementsByClassName('last');
 			navi[0].colSpan +=1;
-		} 
+		}
 	}
 }
 
@@ -51,7 +53,7 @@ function vbb_permalink_get_url(row) {
 		hwai = row.id.substring(10),
 		url = '',
 		details = document.getElementsByClassName('details');
-		
+
 		var timeDom = row.getElementsByClassName('planed');
 		time = timeDom[0].innerHTML.substring(1,6);
 
@@ -69,4 +71,4 @@ function vbb_permalink_has_class(el, selector) {
    return false;
  }
 
-
+}());
