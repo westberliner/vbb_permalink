@@ -2,7 +2,7 @@ VBB Permalink
 =============
 
 
-1. Zieh diesen Link auf deine Bookmark-Bar: [PermaPlan](javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://raw.github.com/westberliner/vbb_permalink/master/permalink.js';})();)
+1. Zieh diesen Link auf deine Bookmark-Bar: <a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://raw.github.com/westberliner/vbb_permalink/master/permalink.js';})();">PermaPlan</a>
 2. [VBB-Fahrinfo-Auskunft durchführen](http://fahrinfo.vbb.de/)
 3. Bookmarklet klicken, URL kopieren und weitergeben!
 
