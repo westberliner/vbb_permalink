@@ -1,9 +1,8 @@
 VBB Permalink
 =============
 
+Ein Bookmarklet, das Permalinks von VBB-Fahrinfo-Auskünften generiert.
 
-1. Zieh diesen Link auf deine Bookmark-Bar: <a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://raw.github.com/westberliner/vbb_permalink/master/permalink.js';})();">PermaPlan</a>
-2. [VBB-Fahrinfo-Auskunft durchführen](http://fahrinfo.vbb.de/)
-3. Bookmarklet klicken, URL kopieren und weitergeben!
+[Folge diesen Anweisungen](http://appsandthecity.net/apps/app/permaplan.html)
 
 Von [Patrick Herzberg](http://herzberg-digital.de/) und [Stefan Wehrmeyer](http://stefanwehrmeyer.com) beim [Apps and the City Entwicklertag](http://appsandthecity.net/).
