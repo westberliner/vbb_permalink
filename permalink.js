@@ -48,7 +48,7 @@ function vbb_permalink_get_url(row) {
 	var from = document.getElementById('HFS_from').value,
 		to = document.getElementById('HFS_to').value,
 		date = document.getElementById('HFS_date_REQ0').value,
-		hwai = row.id.substring(10),
+		hwai = "C0-0";//row.id.substring(10),
 		url = '',
 		details = document.getElementsByClassName('details');
 		
