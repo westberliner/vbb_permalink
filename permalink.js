@@ -1,8 +1,8 @@
 /**
- * todo:  	later (geht nicht)
- *			on bookmark click share dom
- *			share dom with url of current row
- *			safari plugin
+ * PermaPlan
+ * By Patrick Herzberg and Stefan Wehrmeyer
+ * Licensed under the MIT license.
+ *
  */
 (function(){
 
