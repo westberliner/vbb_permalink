@@ -19,9 +19,9 @@ function vbb_permalink_init() {
 
 	var rows = tbody[0].getElementsByTagName("tr");
 	var cell = document.createElement("td");
-		cell.innerHTML = "Permalink";
-		cell.style.padding = "2px 10px";
-		rows[0].appendChild(cell);
+	cell.innerHTML = "Permalink";
+	cell.style.padding = "2px 10px";
+	rows[0].appendChild(cell);
 
 
 	/* apply share link */
@@ -31,17 +31,31 @@ function vbb_permalink_init() {
 	thead[0].colSpan += 1;
 
 	rows = tbody.getElementsByClassName('tpOverview');
+	var activeUrl, count = 0, noPropagate = function(e) {
+		e.stopPropagation();
+	};
 
-	for(i = 0; i < rows.length; i++) {
+	for(var i = 0; i < rows.length; i++) {
 		if(!vbb_permalink_has_class(rows[i],'navi')) {
-
+			count += 1;
+			if (vbb_permalink_has_class('active')) {
+				activeUrl = vbb_permalink_get_url(rows[i]);
+			}
 			cell = document.createElement("td");
-			cell.innerHTML = "<a href=\""+vbb_permalink_get_url(rows[i])+"\">share this</a>";
+			cell.innerHTML = '<a href="' + vbb_permalink_get_url(rows[i]) + '">Permalink</a>';
 			cell.style.padding = "2px 10px";
+			cell.addEventListener("click", noPropagate);
 			rows[i].appendChild(cell);
 		} else {
 			var navi = rows[i].getElementsByClassName('last');
 			navi[0].colSpan +=1;
+		}
+	}
+	if (count === 3) {
+		if (activeUrl) {
+			history.pushState(null, null, activeUrl);
+		} else {
+			history.pushState(null, null, vbb_permalink_get_url());
 		}
 	}
 }
@@ -50,15 +64,22 @@ function vbb_permalink_get_url(row) {
 	var from = document.getElementById('HFS_from').value,
 		to = document.getElementById('HFS_to').value,
 		date = document.getElementById('HFS_date_REQ0').value,
-		hwai = "C0-0";//row.id.substring(10),
+		time = document.getElementById('HFS_time_REQ0').value,
+		hwai,
 		url = '',
 		details = document.getElementsByClassName('details');
 
+	if (row){
+		hwai = row.id.substring(10);
 		var timeDom = row.getElementsByClassName('planed');
 		time = timeDom[0].innerHTML.substring(1,6);
+	}
 
 	url = 'dn?From=' + from + '%21&To=' + to + '%21&time=' + time + '&date=' + date + '&start=1' ;
-	url += '&HWAI=CONNECTION$' + hwai + '!id=' + hwai + '!HwaiConId=' + hwai + '!HwaiDetailStatus=details';
+	if (hwai) {
+		url += '&HWAI=CONNECTION$' + hwai + '!id=' + hwai + '!HwaiConId=' + hwai + '!HwaiDetailStatus=details';
+	}
+	url += '#focus';
 
 	return url;
 }
