@@ -1,7 +1,7 @@
 VBB Permalink
 =============
 
-Ein Bookmarklet, das Permalinks von VBB-Fahrinfo-Auskünften generiert.
+Ein Bookmarklet, das Permalinks von VBB-Fahrinfo und der Deutschen Bahn generiert.
 
 [Folge diesen Anweisungen](http://appsandthecity.net/apps/app/permaplan.html)
 
